@@ -4,6 +4,7 @@ using MediatR;
 using MediatR.Pipeline;
 using TFL.Sales.Application.Features.Products;
 using TFL.Sales.Application.Infrastructure.PipelineBehaviors;
+using TFL.Sales.Domain.ProductRoot;
 
 namespace TFL.Sales.Application.Infrastructure
 {
@@ -19,7 +20,11 @@ namespace TFL.Sales.Application.Infrastructure
 				.AsImplementedInterfaces()
 				.InstancePerLifetimeScope();
 
-			var mediatrOpenTypes = new[]
+            builder.RegisterAssemblyTypes(typeof(Product).GetTypeInfo().Assembly)
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
+
+            var mediatrOpenTypes = new[]
 			{
 				typeof(IRequestHandler<,>),
 				typeof(INotificationHandler<>),

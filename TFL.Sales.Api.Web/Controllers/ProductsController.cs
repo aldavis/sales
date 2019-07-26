@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TFL.Infrastructure.WebApi;
 using TFL.Sales.Application.Features.Products;
+using TFL.Sales.Application.Features.Products.Illustrations;
 
 namespace TFL.Sales.Api.Web.Controllers
 {
@@ -26,5 +27,14 @@ namespace TFL.Sales.Api.Web.Controllers
 			return Ok(result);
 		}
 
-	}
+        [HttpGet("term/illustrate", Name = "illustrate term product")]
+        [ProducesResponseType(typeof(IIllustrateTermProductResponse), 200)]
+        public async Task<IActionResult> IllustrateProduct(IllustrateTermProductRequest request, CancellationToken token)
+        {
+            var result = await _mediator.Send(request, token);
+
+            return Ok(result);
+        }
+
+    }
 }
