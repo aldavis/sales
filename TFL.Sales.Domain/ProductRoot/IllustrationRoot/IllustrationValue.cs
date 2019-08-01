@@ -1,6 +1,6 @@
 ﻿namespace TFL.Sales.Domain.ProductRoot.IllustrationRoot
 {
-    public class ProductIllustrationAnnualValue<T> where T: Product
+    public class IllustrationValue<T> where T: Product
     {
         public int Age { get; set; }
 

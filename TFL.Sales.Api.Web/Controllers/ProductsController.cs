@@ -27,13 +27,23 @@ namespace TFL.Sales.Api.Web.Controllers
 			return Ok(result);
 		}
 
+		//TODO put more thought toward the illustration of products being its own service since it is looking to be pretty involved
         [HttpGet("term/illustrate", Name = "illustrate term product")]
-        [ProducesResponseType(typeof(IIllustrateTermProductResponse), 200)]
-        public async Task<IActionResult> IllustrateProduct(IllustrateTermProductRequest request, CancellationToken token)
+        [ProducesResponseType(typeof(IIlustrateTermProductResponse), 200)]
+        public async Task<IActionResult> IllustrateTermProduct(IllustrateTermProductRequest request, CancellationToken token)
         {
             var result = await _mediator.Send(request, token);
 
             return Ok(result);
+        }
+        
+        [HttpGet("universal/illustrate", Name = "illustrate universal product")]
+        [ProducesResponseType(typeof(IIlustrateUniversalProductResponse), 200)]
+        public async Task<IActionResult> IllustrateUniversalProduct(IllustrateUniversalProductRequest request, CancellationToken token)
+        {
+	        var result = await _mediator.Send(request, token);
+
+	        return Ok(result);
         }
 
     }
