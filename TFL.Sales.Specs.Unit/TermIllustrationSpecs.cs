@@ -1,20 +1,24 @@
+using System.Collections.Generic;
 using System.Linq;
+using Shouldly;
 using TFL.Sales.Domain.ProductRoot;
 using TFL.Sales.Domain.ProductRoot.IllustrationRoot;
 using TFL.Sales.Domain.ProductRoot.IllustrationRoot.TermIllustrationRoot;
-using Xunit.Extensions;
+using Xbehave;
 
 namespace TFL.Sales.Specs.Unit
 {
-    public class illustration_should_have_annual_value_for_each_year_remaining_until_maturity : Specification
+    public class TermIllustrationSpecs
     {
-        private ITermIllustrationBuilder _illustrationBuilder;
+        private readonly string _insuredGender;
+        private readonly TermLifeProduct _product;
+        private readonly ITermIllustrationBuilder _illustrationBuilder;
 
         private InsuredAge _insuredAgeForIllustration;
-        private string _insuredGender;
-        private TermLifeProduct _product;
-        
-        protected override void Observe()
+
+        private Dictionary<ProductIllustrationAnnualValuesType, IList<IllustrationValue<TermLifeProduct>>> _illustration;
+
+        public TermIllustrationSpecs()
         {
             _illustrationBuilder = new TermIllustrationBuilder();
             _insuredGender = "m";
@@ -22,26 +26,48 @@ namespace TFL.Sales.Specs.Unit
             _product = new TermLifeProduct();
         }
 
-        [Observation(DisplayName = "illustration for 41 year old should have 54 rows for annual value")]
+        [Scenario]
         public void illustration_for_41_year_old_should_have_54_rows_for_annual_values()
         {
-            _insuredAgeForIllustration = new InsuredAge(41);
-            
-            var illustration = _illustrationBuilder.GenerateIllustration(new ProductIllustrationOptions<TermLifeProduct>(_product,_insuredAgeForIllustration.Value,_insuredGender));
-            illustration.Values.Count.ShouldEqual(1);
-            illustration.Count(x => x.Key == ProductIllustrationAnnualValuesType.CurrentValues).ShouldEqual(1);
-            illustration[ProductIllustrationAnnualValuesType.CurrentValues].Count.ShouldEqual(54);
+            "Given: insured at age 41"
+                .x(() => _insuredAgeForIllustration = new InsuredAge(41));
+
+            "When: illustration is generated"
+                .x(() => _illustration = _illustrationBuilder.GenerateIllustration(
+                    new ProductIllustrationOptions<TermLifeProduct>(_product, _insuredAgeForIllustration.Value,
+                        _insuredGender)));
+
+            "Then: response should contain 1 illustration"
+                .x(() => _illustration.Values.Count.ShouldBe(1));
+
+            "And: illustration should contain current annual values"
+                .x(() => _illustration.Count(x => x.Key == ProductIllustrationAnnualValuesType.CurrentValues)
+                    .ShouldBe(1));
+
+            "And: current annual values should contain 54 rows"
+                .x(() => _illustration[ProductIllustrationAnnualValuesType.CurrentValues].Count.ShouldBe(54));
         }
-        
-        [Observation(DisplayName = "illustration for 31 year old should have 64 rows for annual value")]
-        public void illustration_for_31_year_old_should_have_54_rows_for_annual_values()
+
+        [Scenario]
+        public void illustration_for_31_year_old_should_have_64_rows_for_annual_values()
         {
-            _insuredAgeForIllustration = new InsuredAge(31);
-            
-            var illustration = _illustrationBuilder.GenerateIllustration(new ProductIllustrationOptions<TermLifeProduct>(_product,_insuredAgeForIllustration.Value,_insuredGender));
-            illustration.Values.Count.ShouldEqual(1);
-            illustration.Count(x => x.Key == ProductIllustrationAnnualValuesType.CurrentValues).ShouldEqual(1);
-            illustration[ProductIllustrationAnnualValuesType.CurrentValues].Count.ShouldEqual(64);
+            "Given: insured at age 31"
+                .x(() => _insuredAgeForIllustration = new InsuredAge(31));
+
+            "When: illustration is generated"
+                .x(() => _illustration = _illustrationBuilder.GenerateIllustration(
+                    new ProductIllustrationOptions<TermLifeProduct>(_product, _insuredAgeForIllustration.Value,
+                        _insuredGender)));
+
+            "Then: response should contain 1 illustration"
+                .x(() => _illustration.Values.Count.ShouldBe(1));
+
+            "And: illustration should contain current annual values"
+                .x(() => _illustration.Count(x => x.Key == ProductIllustrationAnnualValuesType.CurrentValues)
+                    .ShouldBe(1));
+
+            "And: current annual values should contain 64 rows"
+                .x(() => _illustration[ProductIllustrationAnnualValuesType.CurrentValues].Count.ShouldBe(64));
         }
     }
 }
