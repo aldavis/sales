@@ -12,8 +12,4 @@
     <ProjectReference Include="..\TFL.Sales.Domain\TFL.Sales.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
 </Project>
