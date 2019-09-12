@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TFL.Infrastructure.WebApi;
 using TFL.Sales.Application.Features.Products;
+using TFL.Sales.Application.Features.Products.Ledgers;
 
 namespace TFL.Sales.Api.Web.Controllers
 {
@@ -26,5 +27,23 @@ namespace TFL.Sales.Api.Web.Controllers
 			return Ok(result);
 		}
 
-	}
+        [HttpGet("term/ledger/values", Name = "calculate ledger for term product")]
+        [ProducesResponseType(typeof(CaluculateTermProductLedgerResponse), 200)]
+        public async Task<IActionResult> CalculateTermProductLedger(CaluculateTermProductLedgerRequest request, CancellationToken token)
+        {
+            var result = await _mediator.Send(request, token);
+
+            return Ok(result);
+        }
+        
+        [HttpGet("universal/ledger/values", Name = "calculate ledger for universal product")]
+        [ProducesResponseType(typeof(CalculateUniversalProductLedgerRequest), 200)]
+        public async Task<IActionResult> CalculateUniversalProductLedger(CalculateUniversalProductLedgerRequest request, CancellationToken token)
+        {
+	        var result = await _mediator.Send(request, token);
+
+	        return Ok(result);
+        }
+
+    }
 }
