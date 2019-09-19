@@ -32,6 +32,7 @@
     <ProjectReference Include="..\TFL.Sales.Application\TFL.Sales.Application.csproj" />
     <ProjectReference Include="..\TFL.Sales.Term.Application\TFL.Sales.Term.Application.csproj" />
     <ProjectReference Include="..\TFL.Sales.Universal.Application\TFL.Sales.Universal.Application.csproj" />
+    <ProjectReference Include="..\TFL.Sales.Whole.Application\TFL.Sales.Whole.Application.csproj" />
   </ItemGroup>
 
 </Project>

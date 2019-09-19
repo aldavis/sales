@@ -1,4 +1,6 @@
-﻿namespace TFL.Sales.Domain.ProductRoot
+﻿using TFL.Sales.Domain.ProductRoot;
+
+namespace TFL.Sales.Whole.Domain
 {
     public class WholeLifeProduct : Product
     {
