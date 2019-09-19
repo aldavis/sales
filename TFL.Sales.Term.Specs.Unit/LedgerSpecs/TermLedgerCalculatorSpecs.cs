@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Shouldly;
-using TFL.Sales.Domain.ProductRoot;
-using TFL.Sales.Domain.ProductRoot.LedgerRoot;
-using TFL.Sales.Domain.ProductRoot.LedgerRoot.TermLedgerRoot;
+using TFL.Sales.Domain.ProductRoot.Ledger;
+using TFL.Sales.Term.Domain;
+using TFL.Sales.Term.Domain.Ledger;
 using Xbehave;
 
-namespace TFL.Sales.Specs.Unit.ProductSpecs.IllustrationSpecs.TermProductIllustrationSpecs
+namespace TFL.Sales.Term.Specs.Unit.LedgerSpecs
 {
     public class TermLedgerCalculatorSpecs
     {

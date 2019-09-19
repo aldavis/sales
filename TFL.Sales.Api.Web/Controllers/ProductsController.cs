@@ -4,7 +4,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TFL.Infrastructure.WebApi;
 using TFL.Sales.Application.Features.Products;
-using TFL.Sales.Application.Features.Products.Ledgers;
+using TFL.Sales.Term.Application;
+using TFL.Sales.Universal.Application;
 
 namespace TFL.Sales.Api.Web.Controllers
 {

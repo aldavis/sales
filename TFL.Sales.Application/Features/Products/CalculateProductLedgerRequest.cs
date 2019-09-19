@@ -2,7 +2,7 @@ using System;
 using TFL.Infrastructure.WebApi.Contracts;
 using TFL.Sales.Domain.ProductRoot;
 
-namespace TFL.Sales.Application.Features.Products.Ledgers
+namespace TFL.Sales.Application.Features.Products
 {
     public class CalculateProductLedgerRequest : ApiRequest
     {

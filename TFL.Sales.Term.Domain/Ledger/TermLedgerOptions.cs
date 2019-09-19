@@ -1,4 +1,6 @@
-﻿namespace TFL.Sales.Domain.ProductRoot.LedgerRoot.TermLedgerRoot
+﻿using TFL.Sales.Domain.ProductRoot.Ledger;
+
+namespace TFL.Sales.Term.Domain.Ledger
 {
     public class TermLedgerOptions : LedgerOptions<TermLifeProduct>
     {

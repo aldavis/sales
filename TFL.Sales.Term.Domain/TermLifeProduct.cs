@@ -1,6 +1,7 @@
-﻿using TFL.Sales.Domain.SharedKernel;
+﻿using TFL.Sales.Domain.ProductRoot;
+using TFL.Sales.Domain.SharedKernel;
 
-namespace TFL.Sales.Domain.ProductRoot
+namespace TFL.Sales.Term.Domain
 {
     public class TermLifeProduct : Product
     {

@@ -1,13 +1,13 @@
 ﻿using System.Threading;
 using Moq;
-using TFL.Sales.Application.Features.Products.Ledgers;
-using TFL.Sales.Domain.ProductRoot.LedgerRoot.TermLedgerRoot;
 using TFL.Sales.Infrastructure.AzureTableQueries;
 using TFL.Sales.Infrastructure.AzureTableQueries.Products;
+using TFL.Sales.Term.Application;
+using TFL.Sales.Term.Domain.Ledger;
 using Xbehave;
 using Xunit;
 
-namespace TFL.Sales.Specs.Unit.ProductSpecs.IllustrationSpecs.TermProductIllustrationSpecs
+namespace TFL.Sales.Term.Specs.Unit.LedgerSpecs
 {
     public class CalculateTermProductLedgerHandlerSpecs
     {

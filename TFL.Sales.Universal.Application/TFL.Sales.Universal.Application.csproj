@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TFL.Sales.Application\TFL.Sales.Application.csproj" />
+    <ProjectReference Include="..\TFL.Sales.Universal.Domain\TFL.Sales.Universal.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

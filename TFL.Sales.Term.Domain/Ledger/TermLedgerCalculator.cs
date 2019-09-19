@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using TFL.Sales.Domain.ProductRoot.Ledger;
 
-namespace TFL.Sales.Domain.ProductRoot.LedgerRoot.TermLedgerRoot
+namespace TFL.Sales.Term.Domain.Ledger
 {
     public interface ITermLedgerCalculator : ILedgerCalculator<TermLifeProduct>{}
 

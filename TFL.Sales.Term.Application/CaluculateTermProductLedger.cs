@@ -4,14 +4,15 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using TFL.Sales.Domain.ProductRoot;
-using TFL.Sales.Domain.ProductRoot.LedgerRoot;
-using TFL.Sales.Domain.ProductRoot.LedgerRoot.TermLedgerRoot;
+using TFL.Sales.Application.Features.Products;
+using TFL.Sales.Domain.ProductRoot.Ledger;
 using TFL.Sales.Infrastructure.AzureTableQueries;
 using TFL.Sales.Infrastructure.AzureTableQueries.Products;
+using TFL.Sales.Term.Domain;
+using TFL.Sales.Term.Domain.Ledger;
 
-[assembly:InternalsVisibleTo("TFL.Sales.Specs.Unit")]
-namespace TFL.Sales.Application.Features.Products.Ledgers
+[assembly:InternalsVisibleTo("TFL.Sales.Term.Specs.Unit")]
+namespace TFL.Sales.Term.Application
 {
     public class CaluculateTermProductLedgerRequest : CalculateProductLedgerRequest, IRequest<CaluculateTermProductLedgerResponse>
     {

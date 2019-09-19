@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 using MediatR;
-using TFL.Sales.Domain.ProductRoot;
-using TFL.Sales.Domain.ProductRoot.LedgerRoot;
-using TFL.Sales.Domain.ProductRoot.LedgerRoot.UniversalLedgerRoot;
+using TFL.Sales.Application.Features.Products;
+using TFL.Sales.Domain.ProductRoot.Ledger;
+using TFL.Sales.Universal.Domain;
+using TFL.Sales.Universal.Domain.Ledger;
 
-namespace TFL.Sales.Application.Features.Products.Ledgers
+namespace TFL.Sales.Universal.Application
 {
     public class CalculateUniversalProductLedgerRequest : CalculateProductLedgerRequest, IRequest<CalculateUniversalProductLedgerResponse> {}
 

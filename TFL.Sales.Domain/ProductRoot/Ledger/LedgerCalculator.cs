@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TFL.Sales.Domain.ProductRoot.LedgerRoot
+namespace TFL.Sales.Domain.ProductRoot.Ledger
 {
     public interface ILedgerCalculator<T> where T: Product
     {

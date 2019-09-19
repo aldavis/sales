@@ -1,6 +1,6 @@
 using System;
 
-namespace TFL.Sales.Domain.ProductRoot.LedgerRoot
+namespace TFL.Sales.Domain.ProductRoot.Ledger
 {
     public class LedgerYear
     {
